@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Big Five Personality Test</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="CSS/form.css" />
+    <style>
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --text-color: #2c3e50;
+            --light-bg: #f5f7fa;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            color: var(--text-color);
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 60px 20px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 1200px;
+        }
+
+        .hero-section h1 {
+            font-size: 2.8rem;
+            color: var(--text-color);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .start-test-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            border: none;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .start-test-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            color: white;
+        }
+
+        .traits-section {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .trait-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 15px 0;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .trait-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .trait-card h3 {
+            color: var(--text-color);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .trait-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            color: var(--text-color);
+        }
+
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+
+            .hero-section p {
+                font-size: 1.1rem;
+            }
+
+            .trait-card {
+                margin: 10px;
+            }
+        }
+
+        .modal-body h4 {
+            color: var(--text-color);
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .modal-body ul {
+            padding-left: 20px;
+        }
+        
+        .modal-body li {
+            margin-bottom: 8px;
+            color: #666;
+        }
+        
+        .btn-close {
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container">
+        <a class="navbar-brand logo" href="#">
+          <img src="img/logo.jpg" alt="Not found" width="50" height="50" class="logo-img" />
+          <span class="brand-text">Big Five Model</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">
+                <i class="fas fa-home"></i> Home
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="fas fa-info-circle"></i> About
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="fas fa-chart-bar"></i> Results
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#traits-section">
+                <i class="fas fa-brain"></i> Personality Types
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="hero-section">
+        <h1>Discover Your Personality Traits</h1>
+        <p>Take our comprehensive Big Five personality test to gain valuable insights into your personality dimensions. 
+           This scientifically validated assessment will help you understand yourself better.</p>
+        <a href="Queries.html" class="start-test-btn">Start Test Now</a>
+    </div>
+
+    <div class="traits-section" id="traits-section">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="trait-card" style="border-left: 4px solid #4CAF50;" data-bs-toggle="modal" data-bs-target="#extraversionModal">
+                    <div class="trait-icon">😊</div>
+                    <h3>Extraversion</h3>
+                    <p>Measures your level of sociability, assertiveness, and energy in social situations. 
+                       Are you outgoing or more reserved?</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="trait-card" style="border-left: 4px solid #2196F3;" data-bs-toggle="modal" data-bs-target="#agreeablenessModal">
+                    <div class="trait-icon">🤝</div>
+                    <h3>Agreeableness</h3>
+                    <p>Reflects your tendency to be compassionate, cooperative, and considerate of others' feelings. 
+                       How do you interact with others?</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="trait-card" style="border-left: 4px solid #9C27B0;" data-bs-toggle="modal" data-bs-target="#conscientiousnessModal">
+                    <div class="trait-icon">📋</div>
+                    <h3>Conscientiousness</h3>
+                    <p>Indicates your level of organization, responsibility, and goal-oriented behavior. 
+                       Are you planned or spontaneous?</p>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="trait-card" style="border-left: 4px solid #FF9800;" data-bs-toggle="modal" data-bs-target="#neuroticismModal">
+                    <div class="trait-icon">🌊</div>
+                    <h3>Neuroticism</h3>
+                    <p>Measures your emotional stability and tendency to experience negative emotions. 
+                       How do you handle stress and emotions?</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="trait-card" style="border-left: 4px solid #E91E63;" data-bs-toggle="modal" data-bs-target="#opennessModal">
+                    <div class="trait-icon">💡</div>
+                    <h3>Openness</h3>
+                    <p>Reflects your curiosity, creativity, and preference for novelty and variety. 
+                       Are you more traditional or innovative?</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals for each personality trait -->
+    <!-- Extraversion Modal -->
+    <div class="modal fade" id="extraversionModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header" style="background: #4CAF50; color: white;">
+                    <h5 class="modal-title">Extraversion</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h4>Key Characteristics:</h4>
+                    <ul>
+                        <li>Sociability and engagement with the external world</li>
+                        <li>Energy derived from social interactions</li>
+                        <li>Assertiveness in social situations</li>
+                        <li>Enthusiasm and excitement-seeking behavior</li>
+                    </ul>
+                    <h4>High Scorers Tend To Be:</h4>
+                    <ul>
+                        <li>Outgoing and energetic</li>
+                        <li>Comfortable in groups and social situations</li>
+                        <li>Confident and assertive</li>
+                        <li>Enjoy being the center of attention</li>
+                    </ul>
+                    <h4>Low Scorers Tend To Be:</h4>
+                    <ul>
+                        <li>Reserved and introspective</li>
+                        <li>Prefer solitary activities</li>
+                        <li>Need time alone to recharge</li>
+                        <li>More comfortable in smaller groups</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Agreeableness Modal -->
+    <div class="modal fade" id="agreeablenessModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header" style="background: #2196F3; color: white;">
+                    <h5 class="modal-title">Agreeableness</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h4>Key Characteristics:</h4>
+                    <ul>
+                        <li>Concern for others' well-being</li>
+                        <li>Empathy and compassion</li>
+                        <li>Cooperation and helpfulness</li>
+                        <li>Trust in human nature</li>
+                    </ul>
+                    <h4>High Scorers Tend To Be:</h4>
+                    <ul>
+                        <li>Compassionate and caring</li>
+                        <li>Cooperative and helpful</li>
+                        <li>Considerate of others' feelings</li>
+                        <li>Trusting and forgiving</li>
+                    </ul>
+                    <h4>Low Scorers Tend To Be:</h4>
+                    <ul>
+                        <li>More competitive</li>
+                        <li>Sometimes skeptical of others' motives</li>
+                        <li>More focused on self-interest</li>
+                        <li>Direct in communication</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Conscientiousness Modal -->
+    <div class="modal fade" id="conscientiousnessModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header" style="background: #9C27B0; color: white;">
+                    <h5 class="modal-title">Conscientiousness</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h4>Key Characteristics:</h4>
+                    <ul>
+                        <li>Organization and planning</li>
+                        <li>Responsibility and reliability</li>
+                        <li>Goal-oriented behavior</li>
+                        <li>Attention to detail</li>
+                    </ul>
+                    <h4>High Scorers Tend To Be:</h4>
+                    <ul>
+                        <li>Organized and methodical</li>
+                        <li>Responsible and reliable</li>
+                        <li>Goal-oriented and persistent</li>
+                        <li>Careful and detail-oriented</li>
+                    </ul>
+                    <h4>Low Scorers Tend To Be:</h4>
+                    <ul>
+                        <li>More flexible and spontaneous</li>
+                        <li>Less concerned with schedules</li>
+                        <li>More relaxed about goals</li>
+                        <li>Sometimes careless or impulsive</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Neuroticism Modal -->
+    <div class="modal fade" id="neuroticismModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header" style="background: #FF9800; color: white;">
+                    <h5 class="modal-title">Neuroticism</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h4>Key Characteristics:</h4>
+                    <ul>
+                        <li>Emotional sensitivity and stability</li>
+                        <li>Response to stress</li>
+                        <li>Anxiety and worry levels</li>
+                        <li>Mood fluctuations</li>
+                    </ul>
+                    <h4>High Scorers Tend To Be:</h4>
+                    <ul>
+                        <li>More sensitive to stress</li>
+                        <li>Experience more anxiety</li>
+                        <li>More prone to mood changes</li>
+                        <li>More self-conscious</li>
+                    </ul>
+                    <h4>Low Scorers Tend To Be:</h4>
+                    <ul>
+                        <li>More emotionally stable</li>
+                        <li>Better at handling stress</li>
+                        <li>More relaxed in general</li>
+                        <li>Less easily upset</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Openness Modal -->
+    <div class="modal fade" id="opennessModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header" style="background: #E91E63; color: white;">
+                    <h5 class="modal-title">Openness</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h4>Key Characteristics:</h4>
+                    <ul>
+                        <li>Intellectual curiosity</li>
+                        <li>Creativity and imagination</li>
+                        <li>Appreciation for art and beauty</li>
+                        <li>Willingness to try new experiences</li>
+                    </ul>
+                    <h4>High Scorers Tend To Be:</h4>
+                    <ul>
+                        <li>Curious and creative</li>
+                        <li>Interested in new experiences</li>
+                        <li>Appreciative of art and beauty</li>
+                        <li>Open to different ideas</li>
+                    </ul>
+                    <h4>Low Scorers Tend To Be:</h4>
+                    <ul>
+                        <li>More traditional</li>
+                        <li>Prefer routine and familiarity</li>
+                        <li>More practical in approach</li>
+                        <li>Less interested in abstract concepts</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>© 2024 Big Five Personality Test. All rights reserved.</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 

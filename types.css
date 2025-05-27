@@ -1,0 +1,151 @@
+* {
+
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family:'Times New Roman', Times, serif;
+
+
+
+}
+
+.navbar {
+
+  display: flex;
+  flex-direction: row;
+  position: sticky;
+  width: 100%;
+  /* border: 2px solid green; */
+
+}
+
+nav {
+
+  box-shadow: 5px 5px 5px rgba(1, 1, 1, 0.05);
+  
+}
+
+
+.navbar ul{
+  display: block;
+  width: 70%;  
+  margin:auto;
+}
+
+ 
+
+.navbar ul li{
+  list-style: none;
+  font-size: 1.3rem;
+  /* border: 1px solid salmon; */
+}
+
+.navbar ul li a{ 
+   /* padding:3px 28px; */
+   text-decoration: none;
+   color: black;
+   font-size: 1.3rem;
+   font-weight:bold;
+   text-align: center;
+}
+
+.navbar ul li a:hover{
+
+
+text-decoration:underline;
+color: #db0860;
+
+}
+
+
+nav .btn{
+  border: 1px solid brown;
+  width: 14%;
+  margin-right: 14px;
+  padding: 20px;
+  font-weight: bold;
+  font-style: oblique;
+  border-radius: 30px;
+  background-color:#ee88b2;
+  color: white;
+  font-size: 1.2rem;
+
+
+}
+
+.logo{
+  /* border: 1px solid red; */
+  width: 15%;
+  margin-left: 8px;
+}
+
+.logo img{
+  border-radius: 20px;
+  margin: 0; 
+  width: 120px;
+  height: 80px;
+}
+#logo-text{
+  background: linear-gradient(to right, #95c7cc 0%, #db0860 84%);
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-top: 15px;
+  text-align: center;
+  width: min-content;
+  line-height: 1.32rem;
+  margin: 0px;
+  
+}
+
+
+
+header {
+  background-color: #ee88b2;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+h1 {
+  font-size: 3.4rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+header p{
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+h2 {
+  font-size: 1.8rem;
+  margin-top: 30px;
+}
+.intro-text {
+  
+  margin-top: 20px;
+  font-size: 1.2rem;
+
+}
+.section {
+  margin: 40px auto;
+  max-width: 1000px;
+  padding: 20px;
+  background-color: #f094ba;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.section h3 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+.section p {
+  font-size: 1.15rem;
+  font-weight: bold;
+  line-height: 1.8;
+
+}
